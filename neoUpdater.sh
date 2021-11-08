@@ -22,7 +22,7 @@ printf "                  Checking latest version ...\n"
 printf " \n"
 LATESTVERSIONINTEL=$(curl -s -L https://github.com/intel/compute-runtime/releases | grep '<a href="/intel/compute-runtime/releases/tag/' | head -n 1 | egrep -o "([0-9]{1,}\.)+[0-9]{1,}" | tail -1)
 printf "                 Latest version is: $LATESTVERSIONINTEL \n"
-CURRENTVERSIONINTEL=$(dpkg -s intel-opencl | grep '^Version:' | awk '{ print $NF }')
+CURRENTVERSIONINTEL=$(dpkg -s intel-opencl-icd | grep '^Version:' | awk '{ print $NF }')
 printf "              Installed version is: $CURRENTVERSIONINTEL \n"
 printf " \n"
 if [ "$LATESTVERSIONINTEL" \> "$CURRENTVERSIONINTEL" ];
